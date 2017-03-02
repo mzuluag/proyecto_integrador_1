@@ -1,11 +1,29 @@
 package proyecto_integrador_1;
 
-public class Ejecutable {
+import processing.core.PApplet;
 
+public class Ejecutable extends PApplet {
+
+		Logica log;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Hola");
+		PApplet.main("proyecto_integrador_1.Ejecutable");
 
+	}
+	
+	public void settings(){
+	
+		
+	}
+	
+	public void setup(){
+		log = new Logica(this);
+		
+	}
+	
+	public void draw(){
+		log.pintar(this);
+		
 	}
 
 }
