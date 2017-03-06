@@ -45,8 +45,11 @@ public class Logica {
 		}
 	}
 	
-	public void teclas(){
+	public void teclas(PApplet app){
 		
+		if(app.key=='1'){
+			
+			}
 		
 	}
 	
