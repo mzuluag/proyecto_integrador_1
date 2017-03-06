@@ -25,5 +25,10 @@ public class Ejecutable extends PApplet {
 		log.pintar(this);
 		
 	}
+	
+	public void keyPressed(){
+		
+		log.teclas(this);
+	}
 
 }
