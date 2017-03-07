@@ -12,7 +12,7 @@ public class Ejecutable extends PApplet {
 	}
 	
 	public void settings(){
-		size(500,500);
+		size(1000,500);
 	}
 	
 	public void setup(){

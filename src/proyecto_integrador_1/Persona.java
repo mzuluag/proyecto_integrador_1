@@ -11,6 +11,7 @@ public class Persona implements Comparable<Persona>{
 	int edad,peso,r,g,b;
 	
 	public Persona(String nombre, String datos,String colores) {
+		
 		String colors[] = colores.split("/");
 		rgb(colors);
 		String[] nseparado = nombre.split(":");
@@ -110,17 +111,17 @@ public class Persona implements Comparable<Persona>{
 	public void pintar(PApplet app, int x, int y){
 		
 		app.fill(r,g,b);
-	//	app.text(,x ,y);
+	    app.text(nombre+" " + apellido+"   " + cedula+"   " + edad+"   " + peso,x ,y);
 		
 	}
 
 	@Override
 	public int compareTo(Persona o) {
+		
 		if(this.apellido.equals(o.getApellido())){
 			return 0;	
 		}else{
 			return this.apellido.compareTo(o.getApellido());
-			
 		}
 		// TODO Auto-generated method stub
 		
@@ -133,5 +134,5 @@ public class Persona implements Comparable<Persona>{
 	}
 	
 	
-
+	
 }
