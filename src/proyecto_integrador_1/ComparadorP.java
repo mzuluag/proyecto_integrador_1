@@ -7,8 +7,10 @@ public class ComparadorP implements Comparator<Persona> {
 	@Override
 	public int compare(Persona o1, Persona o2) {
 		// TODO Auto-generated method stub
-		return o1.getPeso()  - (o2.getPeso());
+		
+		return o1.getPeso() - o2.getPeso();
+		}
 	}
 	
 
-}
+
