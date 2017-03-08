@@ -13,7 +13,7 @@ public class Logica {
 	TreeSet<Persona> personas2;
 	TreeSet<Persona> personas3;
 	HashSet<Persona> personas4;
-
+	int pantalla = 0;
 	String[] nombres;
 	String[] colores;
 	String[] datos;
@@ -27,24 +27,52 @@ public class Logica {
 		personas2 = new TreeSet<Persona>();
 		personas3 = new TreeSet<Persona>(new ComparadorE());
 		personas4 = new HashSet<Persona>();
-		
 		crearPersonas();
 
 	}
 
 	public void pintar(PApplet app) {
 
-		for (int i = 0; i < personas.size(); i++) {
-			personas.get(i).pintar(app, 10, 20 + (40 * i));
+		app.background(0);
+		switch (pantalla) {
+
+		case 0:
+			for (int i = 0; i < personas.size(); i++) {
+				personas.get(i).pintar(app, 10, 20 + (40 * i));
+
+			}
+			break;
+		case 1:
+
+			personas2.addAll(personas);
+			recorrerTreeSet(app);
+			break;
+
+		case 2:
+
+			Collections.sort(personas, new ComparadorP());
+			for (int i = 0; i < personas.size(); i++) {
+				personas.get(i).pintar(app, 10, 20 + (40 * i));
+
+			}
+
+			break;
+
+		case 3:
+
+			personas3.addAll(personas);
+			recorrerTreeSet2(app);
+
+			break;
+
+		case 4:
+
+			personas4.addAll(personas);
+			recorrerHashSet(app);
+
+			break;
 
 		}
-		
-		
-		recorrerTreeSet(app);
-		recorrerTreeSet2(app);
-		recorrerHashSet(app);
-
-
 	}
 
 	public void recorrerTreeSet(PApplet app) {
@@ -66,7 +94,7 @@ public class Logica {
 			i++;
 		}
 	}
-	
+
 	public void recorrerHashSet(PApplet app) {
 		Iterator<Persona> it = personas4.iterator();
 		int i = 0;
@@ -77,7 +105,6 @@ public class Logica {
 		}
 	}
 
-
 	public void crearPersonas() {
 		for (int i = 0; i < nombres.length; i++) {
 			personas.add(new Persona(nombres[i], datos[i], colores[i]));
@@ -86,44 +113,24 @@ public class Logica {
 	}
 
 	public void teclas(PApplet app) {
-
 		switch (app.key) {
+
 		case '1':
-			if(!personas.isEmpty() || !personas3.isEmpty()){
-			personas2.addAll(personas);
-			personas.removeAll(personas2);
-			personas3.removeAll(personas2);
-			}
+			pantalla = 1;
 			break;
-
 		case '2':
-			if(!personas.isEmpty()){
-				Collections.sort(personas,new ComparadorP());
-				
-			}
-
+			pantalla = 2;
 			break;
 
 		case '3':
-			
-			if(!personas.isEmpty()){
-				personas3.addAll(personas);
-				personas.removeAll(personas3);
-				
-			}
-
+			pantalla = 3;
 			break;
 
 		case '4':
-
-			if(!personas.isEmpty()){
-				personas4.addAll(personas);
-				personas.removeAll(personas4);
-				
-			}
-			
-
+			pantalla = 4;
 			break;
 		}
+
 	}
+
 }

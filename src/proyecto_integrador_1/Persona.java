@@ -138,7 +138,8 @@ public class Persona implements Comparable<Persona>{
 	}
 
 	@Override
-	public int hashCode() {		
+	public int hashCode() {
+		
 		return  this.sumaColor;
 	}
 
